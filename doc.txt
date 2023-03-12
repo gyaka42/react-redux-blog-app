@@ -1,0 +1,32 @@
+React Blog App
+
+A. Uygulamanın Tanıtımı:
+    Bu uygulama react ile geliştirilecek bir blog uygulamasıdır. Normal 
+    kullanıcılar sistemdeki bütün blog yazılarını görebilir ve okuyabilir.
+    Admin yetkisine sahip kullanıcılar admin paneline giriş yapabilir, 
+    kendine ait blog yazılarını silebilir, düzenleyebilir ya da yeni bir
+    blog yazısı oluşturabilir.
+B. Projenin Gerçeklenmesi
+    1. Dependencies
+        - json server
+        - axios
+        - react-router-dom,
+        - redux , react-redux
+        - UI kütüphanesi olarak bootstrap kullanılacak.(react-bootstrap bootstrap)
+    2. Ana Kurallar
+        - Projede 3 rol bulunmaktadır. 
+            a. Giriş yapmamış kullanıcı: siteyi ziyaret eder ve blog yazılarını okur
+            b. Blogger rolü: Bu role sahip kullanıcı admin paneline giriş yapabilir.
+            Kendine ait blog yazıları üzerinde CRUD yetkisi vardır. Kategoriler kısmında
+            herhangi bir yetkisi yoktur.
+            c. Admin rolü: Bu role sahip kullanıcı sistemdeki BÜTÜN blog yazıları üzerinde
+            CRUD yetkisi vardır. Ayrıca sistemdeki kategoriler kısmı üzerinde CRUD yetkisi
+            cardır.
+    3. Projenin Alt Yapısının Kurulması
+        - json server ve veri yapısının hazırlanması +
+        - redux alt yapısının kurulması +
+            . store'a taşınacak statelere karar vermek: blogsState, 
+            categoriesState, usersState, loginState
+        - Router yapısının kurulması +
+    4. axios instance oluşturulması +
+    5. Proje başlarken verilerin çekilerek redux'a yüklenmesi

@@ -1,0 +1,47 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "title": "HTML nedir?",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione maiores fugiat officia aut? Veritatis porro earum facere quaerat modi minima aliquid, quam nobis neque officia hic, molestias, eveniet amet in.",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas, accusantium qui magni sed dignissimos quos recusandae, sint excepturi veniam aliquid quibusdam pariatur saepe id nam eius molestiae ipsa est ab similique. Aut tempora ipsam, ea provident voluptatem inventore cumque corrupti vel maiores laboriosam quidem delectus architecto sapiente nam natus.",
+      "img": "https://en.wikipedia.org/wiki/HTML#/media/File:HTML5_logo_and_wordmark.svg",
+      "categoryId": "1",
+      "userId": "1"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "html"
+    },
+    {
+      "id": "2",
+      "name": "css"
+    },
+    {
+      "id": "3",
+      "name": "js"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "superadmin",
+      "password": "superadmin",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "blogger1",
+      "password": "blogger1",
+      "role": "blogger"
+    },
+    {
+      "id": "3",
+      "username": "blogger2",
+      "password": "blogger2",
+      "role": "blogger"
+    }
+  ]
+}
