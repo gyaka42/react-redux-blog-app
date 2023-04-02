@@ -6,55 +6,57 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import actionTypes from "../redux/actions/actionTypes";
 
-import Header from "../components/Header";
-
 const Login = () => {
+  const { usersState, loginState } = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { usersState, loginState } = useSelector((state) => state);
   const [form, setForm] = useState({
     username: "",
     password: "",
   });
-
   useEffect(() => {
-    if (loginState.success === true) navigate("/");
+    if (loginState.success) navigate("/");
   }, []);
-
   const handleLogin = (event) => {
     event.preventDefault();
     const hasUser = usersState.users.find(
       (item) => item.username === form.username
     );
     if (hasUser === undefined) {
-      alert("Boyle bir Kullanici bulunamadi");
+      alert("Böyle bir kullanıcı bulunamadı");
       return;
     }
     if (hasUser.password !== form.password) {
-      alert("Sifreniz yanlistir.");
+      alert("Şifreniz yanlıştır");
       return;
     }
-    /* Login Basarili */
+    /* login başarılı */
     dispatch({
       type: actionTypes.loginActions.LOGIN_SUCCESS,
-      payload: { username: hasUser.username, role: hasUser.role },
+      payload: {
+        username: hasUser.username,
+        role: hasUser.role,
+        userId: hasUser.id,
+      },
     });
     const successLoginState = {
       pending: false,
       success: true,
       error: false,
       errorMessage: "",
-      user: { username: hasUser.username, role: hasUser.role },
+      user: {
+        username: hasUser.username,
+        role: hasUser.role,
+        userId: hasUser.id,
+      },
     };
     localStorage.setItem("loginState", JSON.stringify(successLoginState));
     navigate("/");
   };
-
   return (
     <div>
-      <Header />
       <Container>
-        <h1 className="my-5 text-center">Login Sayfasi</h1>
+        <h1 className="my-5 text-center">Login</h1>
         <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Username</Form.Label>
@@ -63,7 +65,8 @@ const Login = () => {
               onChange={(event) =>
                 setForm({ ...form, username: event.target.value })
               }
-              placeholder="Enter Username"
+              type="text"
+              placeholder="Enter username"
             />
           </Form.Group>
 
@@ -71,24 +74,20 @@ const Login = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               value={form.password}
-              onChange={(event) => {
-                setForm({ ...form, password: event.target.value });
-              }}
+              onChange={(event) =>
+                setForm({ ...form, password: event.target.value })
+              }
               type="password"
               placeholder="Password"
             />
           </Form.Group>
-          <Form.Group
-            className="mb-3"
-            controlId="formBasicCheckbox"
-          ></Form.Group>
           <div className="my-5 d-flex justify-content-center">
             <Button className="w-50" variant="primary" type="submit">
               Login
             </Button>
           </div>
           <div className="my-5 d-flex justify-content-center">
-            <Link to={"/"}>Ana sayfaya don</Link>
+            <Link to={"/"}>Anasayfaya Dön</Link>
           </div>
         </Form>
       </Container>

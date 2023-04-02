@@ -5,8 +5,26 @@
       "title": "HTML nedir?",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione maiores fugiat officia aut? Veritatis porro earum facere quaerat modi minima aliquid, quam nobis neque officia hic, molestias, eveniet amet in.",
       "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas, accusantium qui magni sed dignissimos quos recusandae, sint excepturi veniam aliquid quibusdam pariatur saepe id nam eius molestiae ipsa est ab similique. Aut tempora ipsam, ea provident voluptatem inventore cumque corrupti vel maiores laboriosam quidem delectus architecto sapiente nam natus.",
-      "img": "https://en.wikipedia.org/wiki/HTML#/media/File:HTML5_logo_and_wordmark.svg",
+      "img": "https://cdn-icons-png.flaticon.com/512/732/732212.png",
       "categoryId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "HTML Elementleri?",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione maiores fugiat officia aut? Veritatis porro earum facere quaerat modi minima aliquid, quam nobis neque officia hic, molestias, eveniet amet in.",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptas, accusantium qui magni sed dignissimos quos recusandae, sint excepturi veniam aliquid quibusdam pariatur saepe id nam eius molestiae ipsa est ab similique. Aut tempora ipsam, ea provident voluptatem inventore cumque corrupti vel maiores laboriosam quidem delectus architecto sapiente nam natus.",
+      "img": "https://cdn-icons-png.flaticon.com/512/732/732212.png",
+      "categoryId": "1",
+      "userId": "2"
+    },
+    {
+      "id": "1680431579877",
+      "title": "CSS Nedir",
+      "description": "CSS kisaca aciklamasi",
+      "content": "icerik gelecek&nbsp;<div><br></div><div>dsajkdasjdlaksjdlskdasdlasdaks</div>",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
+      "categoryId": "2",
       "userId": "1"
     }
   ],

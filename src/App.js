@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-/* for routing pages */
+/* routing stuff */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 /* pages */
@@ -9,25 +9,26 @@ import Home from "./pages/Home";
 import AdminHome from "./pages/AdminHome";
 import Login from "./pages/Login";
 import Error from "./pages/Error";
+import AddBlog from "./pages/AddBlog";
+import BlogDetail from "./pages/BlogDetail";
 
-/* api */
+/* api stuff */
 import api from "./api/api";
 import endpoints from "./api/endpoints";
 import "./assets/css/main.css";
-import "./assets/css/about.css";
-import "./assets/css/blogdetail.css";
 import "./assets/css/header.css";
+import "./assets/css/blogdetail.css";
+import "./assets/css/about.css";
 
-/* redux */
+/* redux stuff */
 import actionTypes from "./redux/actions/actionTypes";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const { blogsState, categoriesState, usersState, loginState } = useSelector(
+  const dispatch = useDispatch();
+  const { blogsState, categoriesState, usersState } = useSelector(
     (state) => state
   );
-  const dispatch = useDispatch();
-
   useEffect(() => {
     /* fetch blogs */
     dispatch({ type: actionTypes.blogActions.GET_BLOGS_START });
@@ -77,11 +78,11 @@ function App() {
           payload: "Kullanıcıları çekerken bir hata oluştu",
         })
       );
-    /* read login state from localstorage */
-    const loginStateFromLocalStorage = JSON.parse(
+    /* read loginState from localstorage */
+    const loginStateFromLocalstorage = JSON.parse(
       localStorage.getItem("loginState")
     );
-    if (loginStateFromLocalStorage === null) {
+    if (loginStateFromLocalstorage === null) {
       localStorage.setItem(
         "loginState",
         JSON.stringify({
@@ -93,17 +94,17 @@ function App() {
         })
       );
     } else {
-      console.log(loginStateFromLocalStorage);
-      if (loginStateFromLocalStorage.success) {
+      if (loginStateFromLocalstorage.success) {
         dispatch({
           type: actionTypes.loginActions.LOGIN_SUCCESS,
-          payload: loginStateFromLocalStorage.user,
+          payload: loginStateFromLocalstorage.user,
         });
       }
     }
   }, []);
   if (!blogsState.success || !categoriesState.success || !usersState.success)
     return null;
+  /* todo: return error page if datas didn't get fetched */
   if (blogsState.error || categoriesState.error || usersState.error)
     return <Error />;
   return (
@@ -113,6 +114,8 @@ function App() {
 
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin/add-blog" element={<AddBlog />} />
+        <Route path="/blog/:blogId" element={<BlogDetail />} />
       </Routes>
     </BrowserRouter>
   );

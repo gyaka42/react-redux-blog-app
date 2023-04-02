@@ -1,0 +1,13 @@
+.listBlogsWrapper{
+    margin: 30px 50px;
+    padding: 20px;
+}
+
+.shadow{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+.btnWrapper{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
